@@ -1,0 +1,13 @@
+# MAINTENANCE-PAGE REDIRECT
+#<IfModule mod_rewrite.c>
+# RewriteEngine on
+# RewriteCond %{REMOTE_ADDR} !^159\.146\.13\.170
+# RewriteCond %{REQUEST_URI} !/maintenance.html$ [NC]
+# RewriteCond %{REQUEST_URI} !\.(jpe?g?|png|gif) [NC]
+# RewriteRule .* /maintenance.html [R=302,L]
+#</IfModule>
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?/$1 [L]
